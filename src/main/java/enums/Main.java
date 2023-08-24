@@ -7,6 +7,8 @@ import enums.order_version1.OrdersV1;
 import enums.payment_examples.Payment;
 import enums.payment_examples.PaymentStatus;
 
+import java.io.File;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -116,6 +118,19 @@ public class Main {
         OrdersV1 ordersV1 = new OrdersV1("500","Nissan Leaf");
         ordersV1.inProgressOrders();
         System.out.println(ordersV1);
+
+        String files1 =  Files.bufferReader("creds.json");
+        System.out.println(files1);
+
+
+
+        CustomerPayment customerPayment = new CustomerPayment("Jon","A008561J","Europe Bank");
+        customerPayment.bitcoinPayment();
+        System.out.println(customerPayment);
+
+        CustomerPayment customerPayment1 = new CustomerPayment("Wag","A66856KJ","Europe Bank");
+        customerPayment1.debitCardPayment();
+        System.out.println(customerPayment1);
 
 
     }

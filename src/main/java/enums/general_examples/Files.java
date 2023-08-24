@@ -13,7 +13,8 @@ public class Files {
             bufferedWriter = new BufferedWriter(new FileWriter("creds.json"));
             bufferedWriter.write("{\n" +
                     "    \"username\" : \"admin\",\n" +
-                    "    \"password\" : \"password123\"\n" +
+                    "    \"password\" : \"password123\",\n" +
+                    "    \"location\": {\"Country\": \"Germany\",\"City\": \"Berlin\"}\n" +
                     "}");
             bufferedWriter.close();
         } catch (IOException e) {
@@ -22,14 +23,17 @@ public class Files {
     }
 
     // read from a file
-    BufferedReader bufferedReader;
 
-    {
+    public static String bufferReader(String filePath) {
+
+        BufferedReader bufferedReader;
+
+
         StringBuilder stringBuilder = new StringBuilder();
         try {
-            bufferedReader = new BufferedReader(new FileReader("creds.json"));
+            bufferedReader = new BufferedReader(new FileReader(filePath));
             String line;
-            while ((line = bufferedReader.readLine()) !=null){
+            while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line);
             }
             bufferedReader.close();
@@ -37,11 +41,11 @@ public class Files {
             throw new RuntimeException(e);
         }
 
-        System.out.println(stringBuilder);
+
+        return stringBuilder.toString();
+
+
     }
-
-
-
 
 
     @Override

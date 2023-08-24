@@ -1,4 +1,5 @@
 {
     "username" : "admin",
-    "password" : "password123"
+    "password" : "password123",
+    "location": {"Country": "Germany","City": "Berlin"}
 }
